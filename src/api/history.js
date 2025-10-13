@@ -1,4 +1,4 @@
-const ENDPOINT = 'http://localhost:8000/predictions'; // <-- tu endpoint real
+const ENDPOINT = '/predictions'; // <-- tu endpoint real
 const USE_MOCK = false; // cambia a true si quieres simular sin backend
 
 const MOCK_DATA = [

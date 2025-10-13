@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { ArrowLeft, Camera as CameraIcon, Image as ImageIcon, Flashlight, FlashlightOff } from 'lucide-react';
 
-const BACKEND_URL = 'http://localhost:8000/predict'; // <-- tu endpoint real
+const BACKEND_URL = '/predict'; // <-- tu endpoint real
 const REQ_TIMEOUT_MS = 20000; // 20s
 
 const CameraView = forwardRef(function CameraView(
@@ -201,9 +201,8 @@ const CameraView = forwardRef(function CameraView(
 
     try {
       const form = new FormData();
-      // 🔧 usa UNA de estas claves según tu backend:
       form.append('file', blob, 'capture.jpg');
-      form.append('image', blob, 'capture.jpg'); // <- puedes borrar esta si no la necesitas
+      form.append('image', blob, 'capture.jpg');
 
       const resp = await fetchWithTimeout(BACKEND_URL, { method: 'POST', body: form });
       if (!resp.ok) throw new Error(`Backend ${resp.status}`);
